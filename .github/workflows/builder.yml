@@ -67,7 +67,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        alpine_version: ["3.21", "3.22", "3.23"]
+        alpine_version: ["3.23"]
     permissions:
       contents: read
       id-token: write # For cosign signing
@@ -77,6 +77,7 @@ jobs:
       architectures: ${{ needs.init.outputs.architectures }}
       build-args: |
         ALPINE_VERSION=${{ matrix.alpine_version }}
+      cache-gha: false
       cache-gha-scope: alpine-${{ matrix.alpine_version }}
       cache-image-tag: ${{ matrix.alpine_version }}
       context: alpine
@@ -96,7 +97,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        debian_version: ["bookworm", "trixie"]
+        debian_version: ["trixie"]
     permissions:
       contents: read
       id-token: write # For cosign signing
@@ -106,6 +107,7 @@ jobs:
       architectures: ${{ needs.init.outputs.architectures }}
       build-args: |
         DEBIAN_VERSION=${{ matrix.debian_version }}
+      cache-gha: false
       cache-gha-scope: debian-${{ matrix.debian_version }}
       cache-image-tag: ${{ matrix.debian_version }}
       context: debian
@@ -125,7 +127,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ubuntu_version: ["22.04", "24.04"]
+        ubuntu_version: ["24.04"]
     permissions:
       contents: read
       id-token: write # For cosign signing
@@ -135,6 +137,7 @@ jobs:
       architectures: ${{ needs.init.outputs.architectures }}
       build-args: |
         UBUNTU_VERSION=${{ matrix.ubuntu_version }}
+      cache-gha: false
       cache-gha-scope: ubuntu-${{ matrix.ubuntu_version }}
       cache-image-tag: ${{ matrix.ubuntu_version }}
       context: ubuntu
@@ -154,8 +157,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        alpine_version: ["3.21", "3.22", "3.23"]
-        python_version: ["3.12", "3.13", "3.14"]
+        alpine_version: ["3.23"]
+        python_version: ["3.14"]
     permissions:
       contents: read
       id-token: write # For cosign signing
@@ -166,6 +169,7 @@ jobs:
       build-args: |
         BASE_IMAGE=ghcr.io/${{ github.repository_owner }}/base
         BASE_VERSION=${{ matrix.alpine_version }}
+      cache-gha: false
       cache-gha-scope: python-${{ matrix.python_version }}-alpine${{ matrix.alpine_version }}
       cache-image-tag: ${{ matrix.python_version }}-alpine${{ matrix.alpine_version }}
       context: python/${{ matrix.python_version }}
