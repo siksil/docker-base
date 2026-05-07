@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=ghcr.io/home-assistant/base
+ARG BASE_IMAGE=ghcr.io/siksil/base
 ARG BASE_VERSION=3.23
 ARG BUILD_FROM=${BASE_IMAGE}:${BASE_VERSION}
 
@@ -158,5 +158,5 @@ COPY --from=build / /
 ENV PATH=/usr/local/bin:$PATH
 
 LABEL \
-    io.hass.type="base" \
-    io.hass.base.name="python"
+    io.inps.type="base" \
+    io.inps.base.name="python"

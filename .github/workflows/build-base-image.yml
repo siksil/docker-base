@@ -141,8 +141,8 @@ jobs:
           image: ${{ matrix.image }}
           image-tags: ${{ inputs.image-tags }}
           labels: |
-            io.hass.base.arch=${{ matrix.arch }}
-            io.hass.base.version=${{ inputs.version }}
+            io.inps.base.arch=${{ matrix.arch }}
+            io.inps.base.version=${{ inputs.version }}
             ${{ inputs.labels }}
           push: ${{ inputs.push }}
           version: ${{ inputs.version }}

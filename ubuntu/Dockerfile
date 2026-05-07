@@ -10,13 +10,13 @@ ENV \
 
 SHELL ["/bin/bash", "-o", "pipefail", "-x", "-c"]
 
-ARG BASHIO_REPOSITORY=hassio-addons/bashio
+ARG BASHIO_REPOSITORY=siksil/bashio
 ARG BASHIO_VERSION=0.17.5
 ARG S6_OVERLAY_ARCH
 ARG S6_OVERLAY_REPOSITORY=just-containers/s6-overlay
 ARG S6_OVERLAY_VERSION=3.2.2.0
 ARG TEMPIO_ARCH
-ARG TEMPIO_REPOSITORY=home-assistant/tempio
+ARG TEMPIO_REPOSITORY=siksil/tempio
 ARG TEMPIO_VERSION=2024.11.2
 
 # Sanity check for later steps
@@ -109,5 +109,5 @@ ENV \
     S6_SERVICES_READYTIME=50
 
 LABEL \
-    io.hass.type="base" \
-    io.hass.base.name="ubuntu"
+    io.inps.type="base" \
+    io.inps.base.name="ubuntu"

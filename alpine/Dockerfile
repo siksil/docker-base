@@ -41,13 +41,13 @@ ENV LANG="C.UTF-8"
 
 SHELL ["/bin/ash", "-o", "pipefail", "-x", "-c"]
 
-ARG BASHIO_REPOSITORY=hassio-addons/bashio
+ARG BASHIO_REPOSITORY=siksil/bashio
 ARG BASHIO_VERSION=0.17.5
 ARG S6_OVERLAY_ARCH
 ARG S6_OVERLAY_REPOSITORY=just-containers/s6-overlay
 ARG S6_OVERLAY_VERSION=3.2.2.0
 ARG TEMPIO_ARCH
-ARG TEMPIO_REPOSITORY=home-assistant/tempio
+ARG TEMPIO_REPOSITORY=siksil/tempio
 ARG TEMPIO_VERSION=2024.11.2
 
 # Sanity check for later steps
@@ -133,7 +133,6 @@ ENTRYPOINT ["/init"]
 # Set shell
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 
-ARG EXTRA_INDEX_URL=https://wheels.home-assistant.io/musllinux-index/
 
 # Default env for S6 and Python/uv
 ENV \
@@ -146,5 +145,5 @@ ENV \
     UV_EXTRA_INDEX_URL=$EXTRA_INDEX_URL
 
 LABEL \
-    io.hass.type="base" \
-    io.hass.base.name="alpine"
+    io.inps.type="base" \
+    io.inps.base.name="alpine"
