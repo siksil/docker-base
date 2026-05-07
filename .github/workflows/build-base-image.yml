@@ -98,7 +98,7 @@ jobs:
     steps:
       - name: Prepare multi-arch matrix
         id: prepare
-        uses: siksil/builder/actions/prepare-multi-arch-matrix@e20b10faa2ba4804d875c003738693f4e90e0ff6 # 2026.03.2
+        uses: siksil/builder/actions/prepare-multi-arch-matrix@c6c1a771a16617c300c067e7609720ed8be217b8 # 2026.03.2
         with:
           architectures: ${{ inputs.architectures }}
           image-name: ${{ inputs.image-name }}
@@ -122,7 +122,7 @@ jobs:
 
       - name: Build image
         id: build
-        uses: siksil/builder/actions/build-image@e20b10faa2ba4804d875c003738693f4e90e0ff6 # 2026.03.2
+        uses: siksil/builder/actions/build-image@c6c1a771a16617c300c067e7609720ed8be217b8 # 2026.03.2
         with:
           arch: ${{ matrix.arch }}
           build-args: ${{ inputs.build-args }}
@@ -157,7 +157,7 @@ jobs:
       packages: write
     steps:
       - name: Publish multi-arch manifest
-        uses: siksil/builder/actions/publish-multi-arch-manifest@e20b10faa2ba4804d875c003738693f4e90e0ff6 # 2026.03.2
+        uses: siksil/builder/actions/publish-multi-arch-manifest@c6c1a771a16617c300c067e7609720ed8be217b8 # 2026.03.2
         with:
           architectures: ${{ inputs.architectures }}
           container-registry-password: ${{ secrets.GITHUB_TOKEN }}
