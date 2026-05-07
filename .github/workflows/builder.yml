@@ -174,8 +174,8 @@ jobs:
       cache-gha-scope: python-${{ matrix.python_version }}-alpine${{ matrix.alpine_version }}
       cache-image-tag: ${{ matrix.python_version }}-alpine${{ matrix.alpine_version }}
       context: python/${{ matrix.python_version }}
-      cosign-base-identity: "https://github.com/${{ github.repository }}/.*"
-      cosign-base-verify: ghcr.io/${{ github.repository_owner }}/base:${{ matrix.alpine_version }}
+      # cosign-base-identity: "https://github.com/${{ github.repository }}/.*"
+      # cosign-base-verify: ghcr.io/${{ github.repository_owner }}/base:${{ matrix.alpine_version }}
       image-name: base-python
       image-tags: |
         ${{ matrix.python_version }}-alpine${{ matrix.alpine_version }}
