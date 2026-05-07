@@ -153,6 +153,7 @@ jobs:
 
   build_python:
     name: Python ${{ matrix.python_version }} (Alpine ${{ matrix.alpine_version }})
+    if: github.event_name == 'release'
     needs: [init, build_alpine]
     strategy:
       fail-fast: false
